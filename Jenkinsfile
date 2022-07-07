@@ -18,7 +18,7 @@ pipeline {
         docker {
             image 'docker.seal-software.net/build-agent-java11'
             args dockerArgs('--network="host"')
-            label 'react-table-hoc-draggable-columns'
+            label 'seal-gui'
         }
     }
     environment {
