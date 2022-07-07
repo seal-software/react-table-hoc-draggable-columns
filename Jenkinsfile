@@ -52,6 +52,9 @@ pipeline {
 
 
         stage('deploy') {
+            when {
+                expression { return isMasterOrRelease() }
+            }
             steps {
                 script {
                     env.TS_VERSION = isMaster() ? env.VERSION : buildVersionNpm(env.NON_MASTER_NPM_VERSION)
