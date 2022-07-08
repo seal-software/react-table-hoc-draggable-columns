@@ -22,7 +22,8 @@ pipeline {
         }
     }
     environment {
-        VERSION = buildVersion()
+        VERSION=sh(script: "./semanticversion ${env.BUILD_NUMBER}", returnStdout: true)
+        NON_MASTER_NPM_VERSION=buildVersion()
         SERVICE_NAME = 'react-table-hoc-draggable-columns'
     }
 

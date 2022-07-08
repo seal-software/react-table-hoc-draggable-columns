@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+BUILD_METADATA=$1
+cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[", ]//g' | cut -f1 -d"-" | awk "{print \$1 \"-\" $BUILD_METADATA}"
