@@ -21,6 +21,7 @@ pipeline {
             label 'seal-gui'
         }
     }
+    
     environment {
         VERSION=sh(script: "./semanticversion ${env.BUILD_NUMBER}", returnStdout: true)
         NON_MASTER_NPM_VERSION=buildVersion()
